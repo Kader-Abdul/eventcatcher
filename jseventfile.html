@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iCalendar Download</title>
+</head>
+<body>
+
+<h1>File Auto Downloand</h1>
+
+<script>
+    // Mock data (replace with your actual IndexedDB retrieval logic)
+    let ics_string_from_indexedDB = "BEGIN:VCALENDAR VERSION:2.0 PRODID:-//hacksw/handcal//NONSGML v1.0//EN BEGIN:VEVENT UID:4d39d1bf291b9ebf8642a1f64a935682@yourhost.test DTSTAMP:20231017T062729Z DTSTART:1672531200 DTEND:1704067199 SUMMARY:Bastille Day Party END:VEVENT END:VCALENDAR"; // Your iCalendar string here
+
+    // Create a Blob from the iCalendar string
+    let blob = new Blob([ics_string_from_indexedDB], { type: 'text/calendar' });
+
+    // Create a download link
+    let link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.download = 'Reminderstoday1.ics';
+
+    // Append the link to the body and trigger a click
+    document.body.appendChild(link);
+    link.click();
+
+    // Cleanup: remove the link after the click event
+    document.body.removeChild(link);
+</script>
+
+</body>
+</html>
