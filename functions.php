@@ -12,11 +12,8 @@ if(isset($_POST['add_event'])){
     $event_short_description=mysqli_real_escape_string($conn1,$_POST['event_short_description']);
     $event_long_description=mysqli_real_escape_string($conn1,$_POST['event_long_description']);
 
-
-
     $sql_add="insert into event_table(event_name,event_short,event_long,event_location,event_date,event_time,created_by)values('$event_name','$event_short_description','$event_long_description','$event_location','$event_date','$event_time','Admin')";
     $run_qry=$conn1->query($sql_add);
-
 
 $path = 'assets/images/';
 $filename="Event".date("Ymdhis");
