@@ -9,8 +9,12 @@ $event_start_time = "09:00:00";
 $event_end_time = "16:59:59";
 
 // Calculate timestamps for start and end dates
-$nextYearTimestamp = date("Y-m-d 09:00:00", strtotime('+113 day'));
-$nextYearTimestampend = date("Y-m-d 16:59:59", strtotime('+113 day'));
+// $nextYearTimestamp = date("Y-m-d 09:00:00", strtotime('+104 day'));
+// $nextYearTimestampend = date("Y-m-d 16:59:59", strtotime('+104 day'));
+
+
+$nextYearTimestamp = "2024-02-20 09:00:00";
+$nextYearTimestampend = "2024-03-05 16:59:59";
 
 
 // Set timezone to GMT
@@ -21,7 +25,7 @@ $starttime = gmdate('Ymd\THis\Z', strtotime($nextYearTimestamp));
 $endtime = gmdate('Ymd\THis\Z', strtotime($nextYearTimestampend));
 
 
-$filename=$event_name;
+$filename="Event_file";
 // Define the alarm details
 $reminderSeconds = 900;  // 15 minutes in seconds
 
@@ -39,7 +43,7 @@ DTEND:$endtime
 SUMMARY:$event_name
 LOCATION:$location
 DESCRIPTION:$description
-RRULE:FREQ=DAILY;COUNT=9
+RRULE:FREQ=DAILY;COUNT=15
 BEGIN:VALARM
 TRIGGER:-PT" . $reminderSeconds . "S
 DESCRIPTION:15-Minute Reminder
